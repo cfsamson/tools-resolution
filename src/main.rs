@@ -9,7 +9,7 @@ fn main() -> Result<()> {
         let e = match entry {
             Ok(e) => e,
             Err(e) => {
-                eprintln!("Klarte ikke lese oppføring: {e}");
+                eprintln!("Couldn't read entry: {e}");
                 continue;
             }
         };
@@ -17,7 +17,7 @@ fn main() -> Result<()> {
         let meta = match e.metadata() {
             Ok(m) => m,
             Err(e) =>  {
-                eprintln!("Klarte ikke lese metadata: {e}");
+                eprintln!("Couldn't read metadata: {e}");
                 continue;
             }
         };
@@ -26,7 +26,7 @@ fn main() -> Result<()> {
             let file =  match fs::read(e.path()) {
                 Ok(f) => f,
                 Err(e) => {
-                    eprintln!("Feil ved lesing av fil: {e}");
+                    eprintln!("Error reading file: {e}");
                     continue;
                 }
             };
@@ -39,7 +39,7 @@ fn main() -> Result<()> {
             let exif_data = match exif_reader.read_from_container(&mut file){
                 Ok(exif) => exif,
                 Err(e) => {
-                    eprintln!("Klarte ikke lese exif data: {e}");
+                    eprintln!("Couldn't read exif data: {e}");
                     continue;
                 }
             };
