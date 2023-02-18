@@ -24,5 +24,5 @@ cargo install --path .
 Naviage to the folder with images and simply write:
 
 ```
-resultion
+resolution
 ```
